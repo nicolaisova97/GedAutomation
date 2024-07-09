@@ -43,6 +43,3 @@ test('@Smoke: Verify WorkFlow', async({page}) => {
     await gedPage.verifyWorkflow();
 });
 
-//hello
-
-
