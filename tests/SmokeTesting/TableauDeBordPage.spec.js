@@ -51,5 +51,5 @@ test('@Smoke3: dasd', async ({page}) => {
     await helpPage.clickOnHelpButton();
     await helpPage.clickOnManuelDutilisationButton();
     // await helpPage.clickOnAideEnLigneButton();
-    // test
+    // test123
 });
