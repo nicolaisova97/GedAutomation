@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Apr 21 19:00:30 EEST 2024","Sun Apr 21 19:00:34 EEST 2024","4338","chrome","LoginPage.spec.js","","","","@Login Log in with empty fields",""
+"failed","Sun Apr 21 19:00:55 EEST 2024","Sun Apr 21 19:01:05 EEST 2024","9676","chrome","LoginPage.spec.js","","","","@Login Successfully reset password",""
+"failed","Sun Apr 21 19:00:12 EEST 2024","Sun Apr 21 19:00:20 EEST 2024","8121","chrome","LoginPage.spec.js","","","","@Login Open Authentification page",""
+"failed","Sun Apr 21 19:00:44 EEST 2024","Sun Apr 21 19:00:55 EEST 2024","10780","chrome","LoginPage.spec.js","","","","@Login Open Reset password form",""
+"failed","Sun Apr 21 19:00:34 EEST 2024","Sun Apr 21 19:00:43 EEST 2024","9532","chrome","LoginPage.spec.js","","","","@Login Log in with invalid credentials",""
+"passed","Sun Apr 21 19:00:20 EEST 2024","Sun Apr 21 19:00:30 EEST 2024","9185","chrome","LoginPage.spec.js","","","","@Login Log In with valid credentials",""
