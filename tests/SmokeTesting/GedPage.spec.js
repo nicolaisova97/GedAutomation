@@ -38,7 +38,7 @@ test('@Smoke: Verify Bannettes', async({page}) => {
     await gedPage.verifyBannettes();
 });
 
-test('@Smoke: Verify WorkFlow', async({page}) => {
+test('@Smoke3: Verify WorkFlow', async({page}) => {
     await loginAndNavigateToGed();
     await gedPage.verifyWorkflow();
 });
