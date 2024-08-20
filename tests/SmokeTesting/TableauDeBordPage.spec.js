@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
 async function login()
 {
     await loginPage.goTo();
-    await loginPage.validLogIn("test.md", "FWNa1cBn");
+    await loginPage.validLogIn("ion.agachi", "KcpurdAE");
 }
 
 test('@Smoke: Open Tableau du Bord page', async() => {
@@ -46,10 +46,3 @@ test('@Smoke: Invalid search', async ({page}) => {
     await searchPage.verifyTableHasNoRows();
 });
 
-test('@Smoke3: dasd', async ({page}) => {
-    await login();
-    await helpPage.clickOnHelpButton();
-    await helpPage.clickOnManuelDutilisationButton();
-    // await helpPage.clickOnAideEnLigneButton();
-    // test123
-});

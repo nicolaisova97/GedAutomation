@@ -5,9 +5,9 @@ class GestionDesDoublonsPage
     constructor(page)
     {
         this.page = page;
-        this.configurerLaMetadonneeButton = page.locator('.css-11tj6l0');
-        this.nouvelleConfigurationButton = page.locator('.css-3wbmhd');
-        this.nouvelleFormulaireModalTitle = page.locator('.css-1h9w4dx');
+        this.configurerLaMetadonneeButton = page.locator('//button[text()=\'Configurer la métadonnée\']');
+        this.nouvelleConfigurationButton = page.locator('//button[text()=\'Nouvelle configuration\']');
+        this.nouvelleFormulaireModalTitle = page.locator('//h2[text()=\'Nouvelle configuration\']');
     }
 
     async verifyGestionDesDoublonsPageLink()

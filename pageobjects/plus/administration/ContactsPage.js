@@ -5,7 +5,7 @@ class ContactsPage
     constructor(page)
     {
         this.page = page;
-        this.clientsButton = page.locator('.css-1y0w59i');
+        this.clientsButton = page.locator('//button[text()=\'Clients\']');
     }
 
     async verifyContactsPageLink()

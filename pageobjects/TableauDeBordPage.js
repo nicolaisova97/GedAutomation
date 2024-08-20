@@ -6,7 +6,7 @@ class TableauDeBordPage
     constructor(page)
     {
         this.page = page;
-        this.pageTitle = page.locator('.css-ts86fj');
+        this.pageTitle = page.locator('//h1[text()=\'Tableau de bord\']');
 
     }
 

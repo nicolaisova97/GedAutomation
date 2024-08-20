@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
 async function login()
 {
     await loginPage.goTo();
-    await loginPage.validLogIn("test.md", "FWNa1cBn");
+    await loginPage.validLogIn("ion.agachi", "KcpurdAE");
 }
 
 async function loginAndNavigateToGed()
@@ -38,7 +38,7 @@ test('@Smoke: Verify Bannettes', async({page}) => {
     await gedPage.verifyBannettes();
 });
 
-test('@Smoke3: Verify WorkFlow', async({page}) => {
+test('@Smoke: Verify WorkFlow', async({page}) => {
     await loginAndNavigateToGed();
     await gedPage.verifyWorkflow();
 });

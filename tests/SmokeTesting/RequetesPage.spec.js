@@ -15,7 +15,7 @@ test.beforeEach(async ({ page }) => {
 async function loginAndNavigateToRequetes()
 {
     await loginPage.goTo();
-    await loginPage.validLogIn("test.md", "FWNa1cBn");
+    await loginPage.validLogIn("ion.agachi", "KcpurdAE");
     await homePage.clickOnRequetes();
 }
 
