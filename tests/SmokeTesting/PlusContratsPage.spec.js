@@ -16,7 +16,7 @@ test.beforeEach(async ({ page }) => {
 
 async function loginAndNavigateToPlusContrats() {
     await loginPage.goTo();
-    await loginPage.validLogIn("test.md", "FWNa1cBn");
+    await loginPage.validLogIn("type username here", "type password here");
     await homePage.clickOnPlus();
     await homePage.clickOnPlusContratsButton();
 }

@@ -32,7 +32,7 @@ test.beforeEach(async ({ page }) => {
     workflowPage = poManager.getWorkflowPage();
     nouveauWorkflowPage = poManager.getNouveauWorkflowPage();
     await loginPage.goTo();
-    await loginPage.validLogIn("test.md", "FWNa1cBn");
+    await loginPage.validLogIn("type username here", "type password here");
 });
 
 const administrationNavigation = async () => 

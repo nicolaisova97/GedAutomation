@@ -23,7 +23,7 @@ class LoginPage
 
     async goTo()
     {
-        await this.page.goto('https://qa-ged.eukles.com/');
+        await this.page.goto('type url here');
         await this.page.waitForLoadState('networkidle');
     }
 
