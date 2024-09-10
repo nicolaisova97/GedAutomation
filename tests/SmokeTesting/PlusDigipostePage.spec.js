@@ -18,7 +18,7 @@ test.beforeEach(async ({ page }) => {
 
 async function loginAndNavigateToPlusDigiposte() {
     await loginPage.goTo();
-    await loginPage.validLogIn("ion.agachi", "KcpurdAE");
+    await loginPage.validLogIn("test.md", "ZAQ!2wsx");
     await homePage.clickOnPlus();
     await homePage.clickOnPlusDigiposte();
 }
