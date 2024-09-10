@@ -4,10 +4,10 @@ class PlusContratsPage
     constructor(page)
     {
         this.page = page;
-        this.nouveauContratButton = page.locator("#btn_contrat_ajouter");
-        this.fournisseursButton = page.locator('#btn_contrat_fournisseurs');
-        this.clientsButton = page.locator('#btn_contrat_clients_finaux');
-        this.editionFormulaireButton = page.locator('#btn_contrat_metadata');
+        this.nouveauContratButton = page.locator("//a[@href='/page/contracts/add']");
+        this.fournisseursButton = page.locator("//a[@href='/page/partners/suppliers']");
+        this.clientsButton = page.locator("//a[@href='/page/partners/clients']");
+        this.editionFormulaireButton = page.locator("//a[@href='/page/metadata/contract/administration']");
     }
 
     async verifyPlusContratsPageLink()

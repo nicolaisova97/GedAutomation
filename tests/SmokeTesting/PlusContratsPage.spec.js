@@ -47,5 +47,5 @@ test('@Smoke: Verify Plus Contrats Clients Page', async({page}) => {
 test('@Smoke: Verify Plus Edition Formulaire Page', async({page}) => {
     await loginAndNavigateToPlusContrats();
     await plusContratsPage.clickOnEditionFormulaire();
-    await plusContratsEditionFormulairePage.verifyEditionFormulairePageTitle();
+    await plusContratsEditionFormulairePage.verifyEditionFormulairePageLink();
 });

@@ -10,7 +10,7 @@ class PlusContratsNouveauContratPage
     async verifyPlusContratsNouveauContratPageLink()
     {
         const currentPageUrl = await this.page.url();
-        expect(currentPageUrl).toContain('do=ajout_contrat');
+        expect(currentPageUrl).toContain('contracts/add');
     }
 }
 

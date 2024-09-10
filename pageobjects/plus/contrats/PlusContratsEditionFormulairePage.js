@@ -7,11 +7,10 @@ class PlusContratsEditionFormulairePage
         
     }
 
-    async verifyEditionFormulairePageTitle()
+    async verifyEditionFormulairePageLink()
     {
-        const textToVerify = 'Ajout/Modification';
-        const locator = this.page.locator(`text=${textToVerify}`);
-        await expect(locator).toBeVisible();
+        const currentPageUrl = await this.page.url();
+        expect(currentPageUrl).toContain('contract/administration');
     }
 
 

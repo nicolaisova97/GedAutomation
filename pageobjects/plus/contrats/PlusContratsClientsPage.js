@@ -9,7 +9,7 @@ class PlusContratsClientsPage
     async verifyPlusContratsClientsPageLink()
     {
         const currentPageUrl = await this.page.url();
-        expect(currentPageUrl).toContain('/clients');
+        expect(currentPageUrl).toContain('partners/clients');
     }
 }
 
