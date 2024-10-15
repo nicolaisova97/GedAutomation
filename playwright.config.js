@@ -12,7 +12,7 @@ const config = {
 
     timeout: 5000
   },
-  
+
   reporter: 'html',
   projects : [
     {
@@ -38,17 +38,17 @@ const config = {
         trace: 'on',
         // ...devices['Pixel 5']
         viewport : {width:1440,height:720}
-    
-    
+
+
       }
     }
 
-    
+
 
 
   ]
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  
+
 
 };
 

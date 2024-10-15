@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
 async function login()
 {
     await loginPage.goTo();
-    await loginPage.validLogIn("ion.agachi", "KcpurdAE");
+    await loginPage.validLogIn("ion.agachi", "ZAQ!2wsx");
 }
 
 test('@Smoke: Open Tableau du Bord page', async() => {
