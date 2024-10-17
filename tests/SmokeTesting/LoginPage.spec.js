@@ -16,7 +16,7 @@ test('@Smoke: Open Authentication page', async ( page ) => {
 
 test('@Smoke: Log In with valid credentials', async ( page ) => {
     await loginPage.goTo();
-    await loginPage.validLogIn("test.md", "ZAQ!2wsx");    
+    await loginPage.validLogIn("test.md", "ZAQ!2wsxZAQ!2wsx");    
     await homePage.verifyPageTitle();
 });
 

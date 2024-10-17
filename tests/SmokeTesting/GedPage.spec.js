@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
 async function login()
 {
     await loginPage.goTo();
-    await loginPage.validLogIn("test.md", "ZAQ!2wsx");
+    await loginPage.validLogIn("test.md", "ZAQ!2wsxZAQ!2wsx");
 }
 
 async function loginAndNavigateToGed()
