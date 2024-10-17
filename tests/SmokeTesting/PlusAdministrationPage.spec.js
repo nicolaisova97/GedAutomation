@@ -245,7 +245,7 @@ test('@Smoke: Verify Utilisateurs Page', async({page}) => {
     await utilisateursPage.verifyUtilisateursPageLink();
 });
 
-test('@Smoke: Verify Nouvel Utilisateur Page', async({page}) => {
+test('@Smoke1: Verify Nouvel Utilisateur Page', async({page}) => {
     await administrationNavigation();
     await homePage.clickOnUtillisateurs();
     await utilisateursPage.clickOnNouvelUtilisateur();

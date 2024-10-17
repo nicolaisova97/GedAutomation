@@ -18,7 +18,7 @@ class MetaclassPage
 
     async clickOnCreerUnMetaclass()
     {
-        await this.creerUnMetaclassButton.click();
+        await this.creerUnMetaclassButton.first().click();
     }
 
     async verifyIfNouveauMetaclassModalContainsCorrectText()
