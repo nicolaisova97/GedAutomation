@@ -14,36 +14,36 @@ test('@Smoke: Open Authentication page', async ( page ) => {
     await loginPage.verifyPageTitle();
 });
 
-test('@Smoke1: Log In with valid credentials', async ( page ) => {
+test('@Smoke: Log In with valid credentials', async ( page ) => {
     await loginPage.goTo();
     await loginPage.validLogIn("test.md", "test.QA2024");    
     await homePage.verifyPageTitle();
 });
 
-test('@Smoke1: Log in with empty fields', async ( page ) => {
+test('@Smoke: Log in with empty fields', async ( page ) => {
     await loginPage.goTo();
     await loginPage.verifyIfUsernameAndPasswordFieldsAreRequired();
 });
 
-test('@Smoke1: Log in with invalid credentials', async ( page ) => {
+test('@Smoke: Log in with invalid credentials', async ( page ) => {
     //some problems here: related to translations
     await loginPage.goTo();
     await loginPage.loginWithInvalidCredentials("test,nd", "djsahdjkahs");
 });
 
-test('@Smoke1: Open Reset password form', async ( page ) => {
+test('@Smoke: Open Reset password form', async ( page ) => {
     //some problems here: related to translations
     await loginPage.goTo();
     await loginPage.openForgotPasswordForm();
 });
 
-test('@Smoke1: Successfully reset password', async ( page ) => {
+test('@Smoke: Successfully reset password', async ( page ) => {
     //some problems here: related to translations
     await loginPage.goTo();
     await loginPage.resetPassword('test@test.test', 'djashdjkas');
 });
 
-test('@Smoke1: Logout', async ( page ) => {
+test('@Smoke: Logout', async ( page ) => {
     //some problems here: related to translations
     await loginPage.goTo();
     await loginPage.validLogIn("test.md", "test.QA2024");

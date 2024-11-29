@@ -44,7 +44,7 @@ test('@Smoke: Verify WorkFlow', async({page}) => {
     await gedPage.verifyWorkflow();
 });
 
-test('@Smoke1: Drag and Drop a document to Document a classer on GED page', async({page}) => {
+test('@Smoke: Drag and Drop a document to Document a classer on GED page', async({page}) => {
     await loginAndNavigateToGed();
     await page.setInputFiles('input[type="file"]', [
         '/home/nick/Downloads/testAutomation.pdf'
@@ -54,7 +54,7 @@ test('@Smoke1: Drag and Drop a document to Document a classer on GED page', asyn
     await expect(documentLocator).toBeVisible();
 });
 
-test('@Smoke1: Standard search of a document by at least one keyword', async({page}) => {
+test('@Smoke: Standard search of a document by at least one keyword', async({page}) => {
     await loginAndNavigateToGed();
     await searchPage.searchForADocument("testAutomation");
     const documentName = page.locator("//span[contains(text(), 'testAutomation')]");

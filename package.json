@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "smokeAllure": "npx playwright test --project=chrome --grep 'Smoke1' --reporter=line,allure-playwright",
+    "smokeAllure": "npx playwright test --project=chrome --grep 'Smoke' --reporter=line,allure-playwright",
     "generateAllure": "allure generate ./allure-results --clean",
     "openAllure": "allure open ./allure-report"
   },
