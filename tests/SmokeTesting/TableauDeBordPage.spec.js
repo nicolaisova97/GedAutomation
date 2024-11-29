@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
 async function login()
 {
     await loginPage.goTo();
-    await loginPage.validLogIn("test.md", "ZAQ!2wsxZAQ!2wsx");
+    await loginPage.validLogIn("test.md", "test.QA2024");
 }
 
 test('@Smoke: Open Tableau du Bord page', async() => {

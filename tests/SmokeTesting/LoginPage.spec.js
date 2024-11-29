@@ -14,31 +14,40 @@ test('@Smoke: Open Authentication page', async ( page ) => {
     await loginPage.verifyPageTitle();
 });
 
-test('@Smoke: Log In with valid credentials', async ( page ) => {
+test('@Smoke1: Log In with valid credentials', async ( page ) => {
     await loginPage.goTo();
-    await loginPage.validLogIn("test.md", "ZAQ!2wsxZAQ!2wsx");    
+    await loginPage.validLogIn("test.md", "test.QA2024");    
     await homePage.verifyPageTitle();
 });
 
-test('@Smoke: Login: Log in with empty fields', async ( page ) => {
+test('@Smoke1: Log in with empty fields', async ( page ) => {
     await loginPage.goTo();
     await loginPage.verifyIfUsernameAndPasswordFieldsAreRequired();
 });
 
-test('@Smoke: Login: Log in with invalid credentials', async ( page ) => {
+test('@Smoke1: Log in with invalid credentials', async ( page ) => {
     //some problems here: related to translations
     await loginPage.goTo();
     await loginPage.loginWithInvalidCredentials("test,nd", "djsahdjkahs");
 });
 
-test('@Smoke: Login1: Open Reset password form', async ( page ) => {
+test('@Smoke1: Open Reset password form', async ( page ) => {
     //some problems here: related to translations
     await loginPage.goTo();
     await loginPage.openForgotPasswordForm();
 });
 
-test('@Smoke: Login1: Successfully reset password', async ( page ) => {
+test('@Smoke1: Successfully reset password', async ( page ) => {
     //some problems here: related to translations
     await loginPage.goTo();
     await loginPage.resetPassword('test@test.test', 'djashdjkas');
+});
+
+test('@Smoke1: Logout', async ( page ) => {
+    //some problems here: related to translations
+    await loginPage.goTo();
+    await loginPage.validLogIn("test.md", "test.QA2024");
+    await homePage.clickOnMonCompteLogo();
+    await homePage.clickOnLogoutButton();
+    await homePage.verifyPageLink();
 });

@@ -41,8 +41,11 @@ class HomePage
         this.utillisateursButton = page.locator("//span[contains(text(), \"utilisateurs\")]");
         this.versioningButton = page.locator("//span[contains(text(), \"Versioning\")]");
         this.workflowButton = page.locator("//span[contains(text(), \"workflow\")]");
-        
-        
+
+        this.searchInput = page.locator("#fulltext");
+        this.rechercherButton = page.locator(".btn-primary");
+        this.monCompteLogo = page.locator("//a[@id='initialMenu']");
+        this.logoutButton = page.locator("//a[@id='logout']");
     }
 
     async verifyPageTitle()
@@ -216,6 +219,19 @@ class HomePage
         await this.workflowButton.click();
     }
 
+    async clickOnMonCompteLogo(){
+        await this.monCompteLogo.click();
+    }
+
+    async clickOnLogoutButton(){
+        await this.logoutButton.click();
+    }
+
+    async verifyPageLink()
+    {
+        const currentPageUrl = await this.page.url();
+        expect(currentPageUrl).toBe('https://qa-ged.eukles.com/');
+    }
 
 }
 

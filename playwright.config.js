@@ -15,16 +15,16 @@ const config = {
   
   reporter: 'html',
   projects : [
-    {
-      name: 'safari',
-      use: {
-
-        browserName : 'webkit',
-        headless : true,
-        screenshot: 'off',
-        trace: 'on'
-      }
-    },
+    // {
+    //   name: 'safari',
+    //   use: {
+    //
+    //     browserName : 'webkit',
+    //     headless : true,
+    //     screenshot: 'off',
+    //     trace: 'on'
+    //   }
+    // },
     {
       name : 'chrome',
       use: {

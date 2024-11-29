@@ -27,6 +27,20 @@ class SearchPage
         await this.searchInput.click();
     }
 
+    async typeDataInSearchInput(data){
+        await this.searchInput.fill(data);
+    }
+
+    async clickOnRechercherButton(){
+        await this.rechercherButton.click();
+    }
+
+    async searchForADocument(data){
+        await this.clickOnSearchInput();
+        await this.typeDataInSearchInput(data);
+        await this.clickOnRechercherButton();
+    }
+
     async clickOnDocumentRadio()
     {
         await this.documentsRadio.click();
@@ -54,11 +68,6 @@ class SearchPage
 
     async getEmptySearchErrorText() {
         return await this.emptySearchError.textContent();
-    }
-
-    async clickOnRechercherButton()
-    {
-        await this.rechercherButton.click();
     }
 
     async getEntreeText()
