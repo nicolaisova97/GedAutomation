@@ -21,7 +21,9 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
       - name: Generate Allure Report
-        run: allure generate allure-results --clean -o allure-report
+        run: |
+          allure generate allure-results --clean -o allure-report
+          ls -al allure-report  # Вывод содержимого отчета для проверки
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
@@ -42,6 +44,10 @@ jobs:
         with:
           name: allure-report
           path: allure-report
+
+      - name: Verify Allure Report
+        run: |
+          ls -al allure-report  # Проверка содержимого после загрузки артефакта
 
       - name: Deploy Allure Report to GitHub Pages
         run: |
