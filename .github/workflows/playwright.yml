@@ -16,13 +16,17 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+      - name: Install Allure CLI
+        run: npm install --save-dev allure-commandline allure-playwright
       - name: Run Playwright tests
         run: npx playwright test
+      - name: Generate Allure Report
+        run: allure generate allure-results --clean -o allure-report
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: playwright-report
-          path: playwright-report/
+          name: allure-report
+          path: allure-report/
           retention-days: 30
 
   deploy:
@@ -33,20 +37,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download Playwright Report
+      - name: Download Allure Report
         uses: actions/download-artifact@v4
         with:
-          name: playwright-report
-          path: playwright-report
+          name: allure-report
+          path: allure-report
 
-      - name: Deploy Playwright Report to GitHub Pages
+      - name: Deploy Allure Report to GitHub Pages
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
           git fetch origin gh-pages || echo "gh-pages does not exist"
           git checkout gh-pages || git checkout --orphan gh-pages
-          git rm -rf .
-          mv playwright-report/* .
-          git add .
-          git commit -m "Deploy Playwright test report"
+          git rm -rf . # Очищаем текущий репозиторий
+          mv allure-report/* . # Перемещаем отчет
+          git add . # Добавляем файлы
+          git commit -m "Deploy Allure test report"
           git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
