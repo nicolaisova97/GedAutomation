@@ -18,7 +18,7 @@ const config = {
       name: "chrome",
       use: {
         browserName: "chromium",
-        headless: false,
+        headless: true,
         screenshot: "on",
         video: "retain-on-failure",
         ignoreHttpsErrors: true, // ignore https security page
