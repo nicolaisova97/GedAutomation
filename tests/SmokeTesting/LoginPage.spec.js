@@ -16,7 +16,7 @@ test("@Smoke: Log In with valid credentials", async (page) => {
 });
 
 test("@Smoke: Login: Open Reset password form ", async (page) => {
-  //some problems here: related to translations
+  //some problems here: related to translations test
   await loginPage.goTo();
   await loginPage.openForgotPasswordForm();
 });
