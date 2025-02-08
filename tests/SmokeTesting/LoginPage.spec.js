@@ -15,7 +15,7 @@ test("@Smoke: Log In with valid credentials", async (page) => {
   await homePage.verifyPageTitle();
 });
 
-test("@Smoke: Login: Open Reset password form", async (page) => {
+test("@Smoke: Login: Open Reset password form ", async (page) => {
   //some problems here: related to translations
   await loginPage.goTo();
   await loginPage.openForgotPasswordForm();
