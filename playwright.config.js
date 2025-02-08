@@ -1,18 +1,18 @@
-// @ts-check
+// playwright.config.js
 const { devices } = require("@playwright/test");
 
 const config = {
   testDir: "./tests",
   retries: 0,
-  workers: 3, // how much test files to run in parralel
-  /* Maximum time one test can run for. */
-  //10-
+  workers: 3, // how many test files to run in parallel
   timeout: 30 * 1000,
   expect: {
     timeout: 5000,
   },
-
-  reporter: "html",
+  reporter: [
+    ["list"],
+    ["html", { outputFolder: "playwright-report", open: "never" }],
+  ],
   projects: [
     {
       name: "chrome",
@@ -21,15 +21,13 @@ const config = {
         headless: true,
         screenshot: "on",
         video: "retain-on-failure",
-        ignoreHttpsErrors: true, // ignore https security page
-        permissions: ["geolocation"], // allow permission to use geolocation from the left top corner
+        ignoreHttpsErrors: true,
+        permissions: ["geolocation"],
         trace: "on",
-        // ...devices['Pixel 5']
         viewport: { width: 1440, height: 720 },
       },
     },
   ],
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 };
 
 module.exports = config;
