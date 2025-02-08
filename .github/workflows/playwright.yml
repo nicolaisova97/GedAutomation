@@ -47,7 +47,8 @@ jobs:
 
       - name: Verify Allure Report
         run: |
-          ls -al allure-report  # Проверка содержимого после загрузки артефакта
+          ls -al allure-report  # Проверка содержимого отчета после скачивания
+          # Убедитесь, что отчет существует в артефакте
 
       - name: Deploy Allure Report to GitHub Pages
         run: |
@@ -56,7 +57,7 @@ jobs:
           git fetch origin gh-pages || echo "gh-pages does not exist"
           git checkout gh-pages || git checkout --orphan gh-pages
           git rm -rf . # Очищаем текущий репозиторий
-          mv allure-report/* . # Перемещаем отчет
+          mv allure-report/* . # Перемещаем отчет в текущую директорию
           git add . # Добавляем файлы
           git commit -m "Deploy Allure test report"
           git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
