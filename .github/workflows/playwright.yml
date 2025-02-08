@@ -28,6 +28,7 @@ jobs:
   deploy:
     needs: test
     runs-on: ubuntu-latest
+    if: always() # Запускать даже если тесты упали
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -42,8 +43,10 @@ jobs:
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
+          git fetch origin gh-pages || echo "gh-pages does not exist"
           git checkout gh-pages || git checkout --orphan gh-pages
           git rm -rf .
           mv playwright-report/* .
           git add .
-          git commit -
+          git commit -m "Deploy Playwright test report"
+          git push -f origin gh-pages
