@@ -49,4 +49,4 @@ jobs:
           mv playwright-report/* .
           git add .
           git commit -m "Deploy Playwright test report"
-          git push -f origin gh-pages
+          git push -f https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} gh-pages
