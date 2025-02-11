@@ -1,0 +1,52 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [qa-dev]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npx playwright test
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: always() # Запускать даже если тесты упали
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Playwright Report
+        uses: actions/download-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
+
+      - name: Deploy Playwright Report to GitHub Pages
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git fetch origin gh-pages || echo "gh-pages does not exist"
+          git checkout gh-pages || git checkout --orphan gh-pages
+          git rm -rf .
+          mv playwright-report/* .
+          git add .
+          git commit -m "Deploy Playwright test report"
+          git push -f https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} gh-pages
