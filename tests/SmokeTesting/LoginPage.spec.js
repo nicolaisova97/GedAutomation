@@ -21,7 +21,7 @@ test("@Smoke: Login: Open Reset password form ", async (page) => {
   await loginPage.openForgotPasswordForm();
 });
 
-test("@Smoke: Login1: Successfully reset password", async (page) => {
+test("@Smoke1: Login1: Successfully reset password", async (page) => {
   //some problems here: related to translations
   await loginPage.goTo();
   await loginPage.resetPassword("test@test.test", "djashdjkas");
