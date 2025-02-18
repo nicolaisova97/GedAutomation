@@ -9,23 +9,23 @@ test.beforeEach(async ({ page }) => {
   homePage = poManager.getHomePage();
 });
 
-test("@Smoke: Open Authentication page", async (page) => {
+test("@Smoke1: Open Authentication page", async (page) => {
   await loginPage.goTo();
   await loginPage.verifyPageTitle();
 });
 
-test("@Smoke: Log In with valid credentials", async (page) => {
+test("@Smoke1: Log In with valid credentials", async (page) => {
   await loginPage.goTo();
   await loginPage.validLogIn("test.md", "test.QA2025");
   await homePage.verifyPageTitle();
 });
 
-test("@Smoke: Log in with empty fields", async (page) => {
+test("@Smoke1: Log in with empty fields", async (page) => {
   await loginPage.goTo();
   await loginPage.verifyIfUsernameAndPasswordFieldsAreRequired();
 });
 
-test("@Smoke: Log in with invalid credentials", async (page) => {
+test("@Smoke1: Log in with invalid credentials", async (page) => {
   //some problems here: related to translations
   await loginPage.goTo();
   await loginPage.loginWithInvalidCredentials("test,nd", "djsahdjkahs");
@@ -43,11 +43,11 @@ test("@Smoke: Successfully reset password", async (page) => {
   await loginPage.resetPassword("test@test.test", "djashdjkas");
 });
 
-test("@Smoke: Logout", async (page) => {
+test("@Smoke11: Logout", async (page) => {
   //some problems here: related to translations
   await loginPage.goTo();
   await loginPage.validLogIn("test.md", "test.QA2025");
   await homePage.clickOnMonCompteLogo();
   await homePage.clickOnLogoutButton();
-  await homePage.verifyPageLink();
+  await loginPage.verifyPageURL(page, "https://qa-ged.eukles.com");
 });

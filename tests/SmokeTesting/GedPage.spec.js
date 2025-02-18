@@ -47,7 +47,7 @@ test("@Smoke: Drag and Drop a document to Document a classer on GED page", async
 }) => {
   await loginAndNavigateToGed();
   await page.setInputFiles('input[type="file"]', [
-    "/home/nick/Downloads/testAutomation.pdf",
+    "C:/Users/Nick/Downloads/Fiche-Contrat.pdf",
   ]);
   await page.reload();
   const documentLocator = page.locator(

@@ -37,7 +37,7 @@ test("@Smoke: Valid search", async ({ page }) => {
   await searchPage.verifyTableHasRows();
 });
 
-test("@Smoke1: Invalid search", async ({ page }) => {
+test("@Smoke: Invalid search", async ({ page }) => {
   await login();
   await searchPage.clickOnSearchInput();
   await searchPage.typeSearchData("kjdjgasidguasjkdas");

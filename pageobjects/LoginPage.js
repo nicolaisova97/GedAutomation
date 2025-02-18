@@ -67,6 +67,11 @@ class LoginPage {
       "La demande de réinitialisation de mot de passe a bien été prise en compte."
     );
   }
+
+  async verifyPageURL(page, expectedURL) {
+    await this.page.waitForLoadState("networkidle");
+    await expect(this.page).toHaveURL(expectedURL);
+  }
 }
 
 module.exports = { LoginPage };
