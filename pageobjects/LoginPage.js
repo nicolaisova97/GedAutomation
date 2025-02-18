@@ -46,7 +46,7 @@ class LoginPage {
     await this.passwordField.fill(password);
     await this.submitButton.click();
     await expect(this.invalidCredentialsError).toHaveText(
-      "Mauvais identifiant ou mot de passe."
+      "Incorrect username or password."
     );
   }
 

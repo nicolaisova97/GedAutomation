@@ -42,28 +42,24 @@ test("@Smoke: Verify WorkFlow", async ({ page }) => {
   await gedPage.verifyWorkflow();
 });
 
-test("@Smoke: Drag and Drop a document to Document a classer on GED page", async ({
+test("@Demo: Manual Single Document Upload via 'Dépôt de fichier' Button to 'Documents a classer'", async ({
   page,
 }) => {
   await loginAndNavigateToGed();
-  await page.setInputFiles('input[type="file"]', [
-    "C:/Users/Nick/Downloads/Fiche-Contrat.pdf",
-  ]);
-  await page.reload();
-  const documentLocator = page.locator(
-    "//a[contains(text(), 'testAutomation.pdf')]"
-  );
-  await expect(documentLocator).toBeVisible();
+  const fileName = "automation-example.pdf"; // Single file
+  await gedPage.uploadFiles(fileName); // Upload single file
+  await gedPage.verifyFileLinksInList(fileName);
 });
 
-test("@Smoke: Standard search of a document by at least one keyword", async ({
+test("@Demo: Manual Multiple Documents Upload via 'Dépôt de fichier' Button to 'Documents a classer'", async ({
   page,
 }) => {
   await loginAndNavigateToGed();
-  await searchPage.searchForADocument("testAutomation");
-  const documentName = page.locator(
-    "//span[contains(text(), 'testAutomation')]"
-  );
-  await expect(documentName).toBeVisible();
-  await page.hover("#view-document-thumb-26");
+  const fileNames = [
+    "automation-example1.pdf",
+    "automation-example2.pdf",
+    "automation-example3.pdf",
+  ]; // Multiple files
+  await gedPage.uploadFiles(fileNames); // Upload multiple files
+  await gedPage.verifyFileLinksInList(fileNames); // Verify multiple files in list
 });
