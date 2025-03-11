@@ -63,3 +63,31 @@ test("@Demo: Manual Multiple Documents Upload via 'Dépôt de fichier' Button to
   await gedPage.uploadFiles(fileNames); // Upload multiple files
   await gedPage.verifyFileLinksInList(fileNames); // Verify multiple files in list
 });
+
+test("@Demo: Drag and Drop a file", async ({ page }) => {
+  await loginAndNavigateToGed();
+  const dropZone = page.locator("#treeview-1017-record-3482"); // Adjust selector as needed
+  const filePath = "path/to/file.png";
+
+  // Read the file as a data transfer item
+  const fileBuffer = fs.readFileSync(filePath);
+  const dataTransfer = await page.evaluateHandle(
+    (fileName, fileType, fileData) => {
+      const dataTransfer = new DataTransfer();
+      const file = new File([fileData], fileName, { type: fileType });
+      dataTransfer.items.add(file);
+      return dataTransfer;
+    },
+    "file.png",
+    "image/png",
+    fileBuffer
+  );
+
+  // Dispatch dragenter, dragover, and drop events
+  await dropZone.dispatchEvent("dragenter", { dataTransfer });
+  await dropZone.dispatchEvent("dragover", { dataTransfer });
+  await dropZone.dispatchEvent("drop", { dataTransfer });
+
+  // Verify file upload (adjust based on your implementation)
+  await expect(page.locator("#upload-success")).toBeVisible();
+});
